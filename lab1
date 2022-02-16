@@ -1,0 +1,97 @@
+Mahnoor Bibi
+C++ lab 1
+// Task: read from a file, calculate
+
+
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <sstream>
+
+using namespace std; 
+int main() {
+  // define variables
+  string sku, brand, category, year, price; 
+  vector<int>vSKU;
+  vector<string>vCategory;
+
+  vector<string>vBrand;
+  vector<float>vPrice;
+  vector<int>vYear;
+  ofstream MyWriteFile("data.csv");
+ 
+
+  MyWriteFile << "sku,brand,category,year,price";
+  MyWriteFile << "\n";
+  MyWriteFile << "113,ABC,C,2020,0.5";
+  MyWriteFile << "\n";
+  MyWriteFile << "121,ABC,A,2000,1.5";
+  MyWriteFile << "\n";
+  MyWriteFile << "142,ABC,B,2010,1.5";
+  MyWriteFile << "\n";
+  MyWriteFile << "193,ABC,C,2020,1.5";
+  MyWriteFile << "\n";
+  MyWriteFile << "321,XYZ,A,2020,1.0";
+  MyWriteFile << "\n";
+  MyWriteFile << "322,XYZ,A,2020,2.0";
+  
+
+  ifstream in_stream; 
+  if(!in_stream.is_open()){
+   	 cout<< "Error opening input file!\n";
+  	  return 0;
+ 	 }
+
+
+    in_stream.open("data.csv"); 
+
+
+  if (!in_stream.fail()) { 
+
+    string line;
+    while (getline(in_stream, line)) {      
+
+// the fields
+     stringstream in_stream(line);
+     getline(in_stream, sku, ',');
+     stringstream ssku(sku); 
+     int iSKU = 0;
+     ssku >> iSKU;
+     vSKU.push_back(iSKU);
+
+     getline(in_stream, brand, ',');
+     vBrand.push_back(brand);
+
+     getline(in_stream, category, ',');
+     vCategory.push_back(category);
+
+     getline(in_stream, year, ','); 
+     stringstream syear(year);
+     int iYear;
+     syear >> iYear;
+     vYear.push_back(iYear);
+
+     getline(in_stream, price, '\n'); 
+     stringstream sprice(price);
+     float fPrice;
+   sprice >> fPrice;
+     vPrice.push_back(fPrice);
+     
+    }
+    in_stream.close(); //closing the file cout << "Number of entries: " << i-1 << endl;
+
+   } else {
+    cout << "Unable to open file"; 
+   }
+ 
+    cout << "SKU" << "\t" << "Brand" << "\t" << "Year" << endl; 
+
+  for (int j = 0; j < vSKU.size(); j++) {
+    cout << vSKU[j] << "\t" << vBrand[j] << "\t" << vYear[j] << endl;
+  }
+
+  cout << endl;
+
+
