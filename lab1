@@ -25,17 +25,17 @@ int main() {
 
   MyWriteFile << "sku,brand,category,year,price";
   MyWriteFile << "\n";
-  MyWriteFile << "113,ABC,C,2020,0.5";
+  MyWriteFile << "112,ABC,C,2020,0.5";
   MyWriteFile << "\n";
-  MyWriteFile << "121,ABC,A,2000,1.5";
+  MyWriteFile << "113,ABC,A,2000,1.5";
   MyWriteFile << "\n";
-  MyWriteFile << "142,ABC,B,2010,1.5";
+  MyWriteFile << "211,ABC,B,2010,1.5";
   MyWriteFile << "\n";
-  MyWriteFile << "193,ABC,C,2020,1.5";
+  MyWriteFile << "321,ABC,C,2020,1.5";
   MyWriteFile << "\n";
-  MyWriteFile << "321,XYZ,A,2020,1.0";
+  MyWriteFile << "322,XYZ,A,2020,1.0";
   MyWriteFile << "\n";
-  MyWriteFile << "322,XYZ,A,2020,2.0";
+  MyWriteFile << "323,XYZ,A,2020,2.0";
   
 
   ifstream in_stream; 
